@@ -1,16 +1,12 @@
-import axios, { AxiosInstance } from "axios";
-
-interface recentlyPlayed {
-    label: string;
-}
+import axios from "axios";
 
 /// <reference types="spotify-api" />
-class RecentesService {
+class RecentlyPlayedService {
 
-    public getRecentPlayed = async (token: string): Promise<any> => {
+    public getRecentPlayed = async (token: string): Promise<SpotifyApi.UsersRecentlyPlayedTracksResponse> => {
         const api = await axios({
             method: 'get',
-            baseURL: 'https://api.spotify.com/v1/me/player/recently-played',
+            baseURL: `https://api.spotify.com/v1/me/player/recently-played`,
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json'
@@ -24,4 +20,4 @@ class RecentesService {
 
 }
 
-export const recentesService = new RecentesService()
+export const recentlyPlayedService = new RecentlyPlayedService()
