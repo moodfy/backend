@@ -9,13 +9,29 @@
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
+      "baseUrl": ".", /* Base directory to resolve non-absolute module names. */
+      "paths": {
+       "*": [
+         "node_modules/*",
+         "src/types/*"
+       ]
+      },
+      
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "sourceMap": true,
       "noImplicitAny": true,
+      "strictPropertyInitialization": false,  /* Enable strict checking of property initialization in classes. */
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      // "strict": true,
       "forceConsistentCasingInFileNames":true
       // "noUnusedLocals": true,          
       // "noUnusedParameters": true
-   }
+   },
+   "include": [
+     "src/**/*"
+   ]
+   
 }

@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import * as express from "express";
+import express = require("express");
 import { Request, Response } from "express";
 import { User } from "./entity/User";
 import passport = require('passport')
@@ -11,8 +11,8 @@ import consolidate = require('consolidate')
 import { recentlyPlayedService } from "./services/recentlyPlayedService";
 import { audioFeaturesService } from "./services/audioFeaturesService";
 import { valenceService } from "./services/valenceService";
+import 'dotenv/config';
 
-require('dotenv').config()
 
 createConnection().then(async connection => {
 

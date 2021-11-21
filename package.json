@@ -3,6 +3,9 @@
    "version": "0.0.1",
    "description": "Projeto backend do shrekness",
    "devDependencies": {
+      "@babel/core": "^7.16.0",
+      "@babel/preset-env": "^7.16.4",
+      "@nestjs/typeorm": "^8.0.2",
       "@types/consolidate": "^0.14.1",
       "@types/cors": "^2.8.12",
       "@types/express": "^4.17.13",
@@ -33,11 +36,17 @@
    "scripts": {
       "start": "tsnd src/index.ts",
       "build:win": "npm run clean && npm run build-ts && xcopy \"./src/views\" \"./build/views/\" /S",
-      "build": "npm run clean && npm run build-ts && cp -R ./src/views ./build",      
+      "build": "npm run clean && npm run build-ts && cp -R ./src/views ./build",
       "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
       "docker:build": "docker build . -t backend",
       "docker:rm": "docker image rm backend",
-      "docker:run": "docker run backend",
-      "docker:pg": "docker-compose up"
+      "docker:run": "docker run -p 3000:3000 backend",
+      "docker:pg": "docker-compose up",
+      "docker:cache": "docker builder prune -a -f",
+      "docker:rm-lan": " docker network rm net",
+      "docker:lan": "docker network create --driver=bridge net",
+      "docker:create": "docker create --name agroback --network net",
+      "clean": "rimraf build",
+      "build-ts": "tsc"
    }
 }
