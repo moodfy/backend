@@ -12,6 +12,10 @@
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "forceConsistentCasingInFileNames":true
+      // "noUnusedLocals": true,          
+      // "noUnusedParameters": true
    }
 }
