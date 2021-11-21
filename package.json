@@ -32,7 +32,8 @@
    },
    "scripts": {
       "start": "tsnd src/index.ts",
-      "build": "tsc",
+      "build:win": "npm run clean && npm run build-ts && xcopy \"./src/views\" \"./build/views/\" /S",
+      "build": "npm run clean && npm run build-ts && cp -R ./src/views ./build",      
       "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
       "docker:build": "docker build . -t backend",
       "docker:rm": "docker image rm backend",
