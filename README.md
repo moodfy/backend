@@ -14,9 +14,14 @@ A estrutura do projeto é a seguinte:
 ````text
 backend
 ├── src              // TypeScript code
+│   ├── controller    // controles lógicos da aplicação
 │   ├── entity       // entidades (database models)
 │   │   └── User.ts  // exemplo de entidade
-│   ├── migration    // migrations
+│   ├── middleware    // camada de intermediadores
+│   ├── migration    // migrations para alterações na estrutura de tabelas
+│   ├── routes    // diretório de rotas
+│   ├── services    // diretório de services
+│   ├── views    // diretório de arquivos html
 │   └── index.ts     // arquivo principal do projeto
 ├── .gitignore       // arquivos para serem ignorados pelo git
 ├── ormconfig.js   // configurações do typeorm
