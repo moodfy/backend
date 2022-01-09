@@ -1,16 +1,17 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 
-class PlaylistService {
-    public getArtistsAlbums = async (token: string, artistId: string): Promise<SpotifyApi.ArtistsAlbumsResponse> => {
+class ArtistService {
+    public getArtistsAlbums = async (token: string, artistId: string): Promise<SpotifyApi.ArtistsAlbumsResponse | any> => {
         const api = await axios({
             method: 'get',
-            baseURL: `	https://api.spotify.com/v1/artists/${artistId}/albums`,
+            baseURL: `https://api.spotify.com/v1/artists/${artistId}/albums`,
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json'
             }
         })
         const returnSpotify = api.data as SpotifyApi.ArtistsAlbumsResponse
+        // console.log(returnSpotify)
         return returnSpotify
     }
 
@@ -68,4 +69,4 @@ class PlaylistService {
 
 }
 
-export const playlistService = new PlaylistService()
+export const artistService = new ArtistService()

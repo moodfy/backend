@@ -11,9 +11,27 @@ import consolidate = require('consolidate')
 import { recentlyPlayedService } from "./services/recentlyPlayedService";
 import { audioFeaturesService } from "./services/audioFeaturesService";
 import { valenceService } from "./services/valenceService";
+import { artistService } from "./services/artistsService";
 import 'dotenv/config';
+import { albumService } from "./services/albumService";
 
+interface AlbumAudioAnalisys {
+    y: number;
+    id: string;
+    x: number;
+    label: string;
+    album: string;
+    r: number
+}
 
+interface Dataset {
+    label: string,
+    data: [{
+        y: number,
+        x: number,
+        r: number
+    }],
+}
 createConnection().then(async connection => {
 
     const authCallbackPath = '/callback';
@@ -87,18 +105,56 @@ createConnection().then(async connection => {
         const userDb = await connection.manager.findOne(User, { spotifyId: user.id })
 
         if (userDb) {
-            const recentes = await recentlyPlayedService.getRecentPlayed(userDb.acessToken)
+            // console.log(userDb)
+            // const recentes = await recentlyPlayedService.getRecentPlayed(userDb.acessToken)
+
+            // let tracks = ''
+            // recentes.items.forEach((element: { track: { id: string; }; }) => {
+            //     tracks += element.track.id + `,`
+            // });
+
+            // const audioFeatures = await audioFeaturesService.getMultipleAudioFeatures(userDb.acessToken, tracks)
+            // https://open.spotify.com/artist/77Dl9332vjr060pj5LbWuN?si=LkoeaQ44Rl-2XBzS46mFvA
+            // anum preto 01zIROcqWjGFgVJxYGxq9O
+            const albuns = await artistService.getArtistsAlbums(userDb.acessToken, '01zIROcqWjGFgVJxYGxq9O')
 
             let tracks = ''
-            recentes.items.forEach((element: { track: { id: string; }; }) => {
-                tracks += element.track.id + `,`
-            });
+            let audioAnalisys: AlbumAudioAnalisys
+            let result: AlbumAudioAnalisys[] = []
+            let audioFeatures
+            let trackResult
+            let label = []
+            let dataset:  Dataset[] = []
+            for (const element of albuns.items) {
+                trackResult = await albumService.getAlbumTracks(userDb.acessToken, element.id)
+                for (const iterator of trackResult.items) {
+                    tracks += iterator.id + ','
+                }
 
-            const audioFeatures = await audioFeaturesService.getMultipleAudioFeatures(userDb.acessToken, tracks)
-
-            const resultado = await valenceService.calculaValencia(audioFeatures)
-            
-            res.render('index.html', { resultado, user: req.user });
+                audioFeatures = await audioFeaturesService.getMultipleAudioFeatures(userDb.acessToken, tracks)
+                tracks = ''
+                if (typeof audioFeatures !== 'undefined') {
+                    for await (const track of trackResult.items) {
+                        for await (const audioFeature of audioFeatures.audio_features) {
+                            if (JSON.stringify(audioFeature.id) === JSON.stringify(track.id)) {
+                                audioAnalisys = {
+                                    y: audioFeature.energy,
+                                    id: audioFeature.id,
+                                    x: audioFeature.valence,
+                                    label: track.name,
+                                    album: element.name,
+                                    r: 10
+                                }
+                                label.push(track.name)
+                                result.push(audioAnalisys)
+                            }
+                        }
+                    }
+                }
+            }
+            // console.log(audioFeatures)
+            const resultado = {}
+            res.render('index.html', { resultado, user: req.user, result, label });
 
         }
     });
