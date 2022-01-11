@@ -10,7 +10,7 @@
       "@types/cors": "^2.8.12",
       "@types/express": "^4.17.13",
       "@types/express-session": "^1.17.4",
-      "@types/node": "^8.0.29",
+      "@types/node": "^8.10.66",
       "@types/passport": "^1.0.7",
       "@types/passport-spotify": "^2.0.1",
       "@types/spotify-api": "^0.0.11",
@@ -19,6 +19,7 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "@types/validator": "^13.7.1",
       "axios": "^0.23.0",
       "body-parser": "^1.18.1",
       "consolidate": "^0.16.0",
@@ -26,11 +27,15 @@
       "dotenv": "^10.0.0",
       "express": "^4.15.4",
       "express-session": "^1.17.2",
+      "helmet": "^4.6.0",
       "nunjucks": "^3.2.3",
       "passport": "^0.5.0",
       "passport-spotify": "^2.0.0",
-      "pg": "^8.4.0",
+      "pg": "^8.7.1",
+      "pg-hstore": "^2.3.4",
       "reflect-metadata": "^0.1.10",
+      "sequelize": "^6.12.5",
+      "sequelize-cli": "^6.3.0",
       "typeorm": "0.2.41"
    },
    "scripts": {
@@ -40,12 +45,12 @@
       "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
       "docker:build": "docker build . -t backend",
       "docker:rm": "docker image rm backend",
-      "docker:run": "docker run -p 3000:3000 backend",
+      "docker:run": "docker run --expose 5432 -p 3000:3000 backend",
       "docker:pg": "docker-compose up",
       "docker:cache": "docker builder prune -a -f",
       "docker:rm-lan": " docker network rm net",
       "docker:lan": "docker network create --driver=bridge net",
-      "docker:create": "docker create --name agroback --network net",
+      "docker:create": "docker create --name backend --network net",
       "clean": "rimraf build",
       "build-ts": "tsc"
    }
