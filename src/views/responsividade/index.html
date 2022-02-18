@@ -3,6 +3,7 @@
 
 <head>
     <html lang="en-US" ng-app="basicApp">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
         integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -15,88 +16,7 @@
         crossorigin="anonymous"></script>
 
     <title>Shrekness</title>
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
 
-
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font: 400 15px/1.8 "Lato", sans-serif;
-            color: #777;
-        }
-
-        .bgimg-1,
-        .bgimg-2,
-        .bgimg-3 {
-            position: relative;
-            /* opacity: 0.85; */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-        }
-
-        .bgimg-1 {
-            background-image: url("https://i.ytimg.com/vi/pDwVHvTvZGk/maxresdefault.jpg");
-            height: 100%;
-        }
-
-        .bgimg-1-home {
-            background-image: url("https://w.wallhaven.cc/full/zm/wallhaven-zmerry.jpg");
-            height: 100%;
-        }
-
-
-
-        .caption {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            text-align: center;
-            color: #000;
-        }
-
-        .caption span.border {
-            background-color: #111;
-            color: #fff;
-            padding: 18px;
-            font-size: 25px;
-            letter-spacing: 5px;
-        }
-
-        h3 {
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font: 20px "Lato", sans-serif;
-            color: #111;
-        }
-
-        a {
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font: 20px "Lato", sans-serif;
-            color: #111;
-            background: azure;
-
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #section1 {}
-
-        #section2 {
-            height: 600px;
-        }
-    </style>
 </head>
 
 <body>
@@ -109,55 +29,71 @@
         </div>
     </div> -->
 
-    <a href="/logout">Logout</a>
-    <div>
+    <!-- <a href="/logout">Logout</a> -->
 
-    </div>
-    <div class="main" id="section2">
-        <div class="bgimg-1"
-            style="background-image: url(https://s.yimg.com/uu/api/res/1.2/AswZkqvI6WCQ5k03h_PnDg--~B/aD0zMDA7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/es/tomatazos_56/632614b7918d69420b6b7c14d487c320)">
-            <div class="caption">
-                <span class="border"> Mais feliz que o Shrek ao som de All Star</span><br>
-            </div>
+    <header id="header">
+        <nav id="nav">
+            <!-- <button id="btn-mobile">
+                    <span id="hamburger"></span>
+                </button>
+                <ul id="menu">
+                    <button id="btn-mobile-close">
+                        <span id="hamburger"></span>
+                    </button> -->
+            <li> <a href="/logout" target="_blank"> <img id="img-logout" src="./Images/logout.png"> Logout</a></li>
+
+    
+            <li> <a href="#section1">Resultado</a></li>
+            <li> <a href="#section2">Ranking</a></li>
+            <li> <a href="#section3">Gráfico</a></li>
+            <!-- </ul> -->
+        </nav>
+    </header>
+
+    <section id="section1">
+        <div class="bgimg-1" style="background-image: url(./Images/shrek-feliz.jpg)"></div>
+        <!-- style="background-image: url(./Images/shrek-na-lama.jpg)"></div>  -->
+        <div class="caption">
+            <span class="border"> Mais feliz que o Shrek ao som de <i>All Star</i></span><br>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="main" id="section1">
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>A nossa primeira funcionalidade é uma análise nas suas últimas 50 músicas reproduzidas. Com base
-                        nela, a gente avalia a propriedade valence, presente em cada música existente no spotify. Essa
-                        propriedade diz o quão triste ou alegre a música é. A escala vai de 0 a 1. Para ter como
-                        exemplo, a música Creep do RadioHead tem 0.104. Já a música All Star do Smash Mouth tem 0.776.
+        </div>
+        <div class="section-frase">
+            <p>A nossa primeira funcionalidade é uma análise das suas últimas 50 músicas reproduzidas.
+                Com base nela, a gente avalia a propriedade <b>valence</b>, presente em cada música existente
+                no Spotify.</p><br>
+            <p>Essa propriedade diz o quão triste ou alegre a música é. A escala vai de 0 a 1.
+                Para ter como exemplo, a música <i>Creep</i> do RadioHead tem 0.104.
+                Já a música <i>All Star</i> do Smash Mouth tem 0.776.</p>
+        </div>
+    </section>
 
-                        Com base em temperamentos do Shrek durante o primeiro filme, foi feito um rank dos estados de
-                        espírito do Shrek com base no atributo valence das músicas ouvidas recentemente.
-                    </p>
-                    <!-- Instrumentalness: This value represents the amount of vocals in the song. The closer it is to 1.0, the more instrumental the song is. -->
-                    <!-- Acousticness: This value describes how acoustic a song is. A score of 1.0 means the song is most likely to be an acoustic one. -->
-                    <!-- Liveness: This value describes the probability that the song was recorded with a live audience. According to the official documentation “a value above 0.8 provides strong likelihood that the track is live”. -->
-                    <!-- Speechiness: “Speechiness detects the presence of spoken words in a track”. If the speechiness of a song is above 0.66, it is probably made of spoken words, a score between 0.33 and 0.66 is a song that may contain both music and words, and a score below 0.33 means the song does not have any speech. -->
-                    <!-- <p>Energy: “(energy) represents a perceptual measure of intensity and activity. Typically, energetic
+    <section id="section2">
+        <div class="card">
+            <p>Com base em temperamentos do Shrek durante o primeiro filme, foi feito um rank dos
+                estados de espírito do Shrek com base no atributo valence das músicas ouvidas recentemente.
+            </p>
+            <!-- Instrumentalness: This value represents the amount of vocals in the song. The closer it is to 1.0, the more instrumental the song is. -->
+            <!-- Acousticness: This value describes how acoustic a song is. A score of 1.0 means the song is most likely to be an acoustic one. -->
+            <!-- Liveness: This value describes the probability that the song was recorded with a live audience. According to the official documentation “a value above 0.8 provides strong likelihood that the track is live”. -->
+            <!-- Speechiness: “Speechiness detects the presence of spoken words in a track”. If the speechiness of a song is above 0.66, it is probably made of spoken words, a score between 0.33 and 0.66 is a song that may contain both music and words, and a score below 0.33 means the song does not have any speech. -->
+            <!-- <p>Energy: “(energy) represents a perceptual measure of intensity and activity. Typically, energetic
                         tracks feel fast, loud, and noisy”.</p> -->
-                    <!-- Danceability: “Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable”. -->
-                    <!-- <p>Valence: “A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
+            <!-- Danceability: “Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable”. -->
+            <!-- <p>Valence: “A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
                         Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with
                         low valence sound more negative (e.g. sad, depressed, angry)”.</p> -->
-                    <p>No gráfico abaixo você pode ver a distribuição das músicas mais recentes.</p>
-                    </footer>
-                </blockquote>
-            </div>
+            <p>No gráfico abaixo você pode ver a distribuição das músicas mais recentes.</p>
         </div>
-    </div>
-    <!-- <div class="container"> -->
-    <div class="main" id="section1">
-        <canvas id="popChart" width="600" height="400"></canvas>
-    </div>
-    <!-- </div> -->
+    </section>
 
+    <section id="section3">
+        <canvas id="popChart" width="600" height="400"></canvas>
+    </section>
+
+
+    <footer class="rodape">
+        <p class="rodape">&copy; 2022 Copyright - <i></i> API Moodfy</p>
+    </footer>
 
     <script type="text/javascript">
         var popCanvas = document.getElementById("popChart");
@@ -228,6 +164,18 @@
                     }
                 }
             }
+        });
+    </script>
+
+
+    <button id="back-to-top">
+        <img src="./Images/flecha-para-cima.png" alt="Flecha apontando para o topo da página">;
+    </button>
+
+    <script>
+        var btn = document.querySelector("#back-to-top");
+        btn.addEventListener("click", function () {
+            window.scrollTo(0, 0);
         });
     </script>
 
