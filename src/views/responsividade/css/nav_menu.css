@@ -232,6 +232,7 @@
         top: -7px;
     }
 
+
     #nav {
         width: 100% !important;
         height: 100% !important;
@@ -251,13 +252,13 @@
 
     #menu {
         position: fixed;
-        width: 50vw !important;
+        width: 0vw !important;
         height: 100vh !important;
         z-index: 2 !important;  
         visibility: hidden;
         overflow: hidden;
         background-color: #5DBB63;
-        transition: .5s ease-in, 0.2s ease-out;
+        transition:  0.45s ease;
     }
 
 
@@ -270,6 +271,16 @@
         background-color: transparent;
         margin-left: 0%;
         padding-left: 0%;
+        visibility: hidden;
+
+    }
+
+    #nav #menu a {
+        visibility: hidden;
+    }
+
+    #nav.active #menu a {
+        visibility: visible !important;
     }
 
     #menu a:hover {
