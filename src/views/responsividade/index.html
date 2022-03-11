@@ -3,7 +3,14 @@
 
 <head>
     <html lang="en-US" ng-app="basicApp">
-    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/geral.css">
+    <link rel="stylesheet" href="./css/buttons.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/section1.css">
+    <link rel="stylesheet" href="./css/section2.css">
+    <link rel="stylesheet" href="./css/section3.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
         integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -33,39 +40,46 @@
 
     <header id="header">
         <nav id="nav">
-            <!-- <button id="btn-mobile">
+            <button id="btn-mobile">
+                <span id="hamburger"></span>
+            </button>
+            
+            <ul id="menu">
+
+                <button id="btn-mobile-close">
                     <span id="hamburger"></span>
                 </button>
-                <ul id="menu">
-                    <button id="btn-mobile-close">
-                        <span id="hamburger"></span>
-                    </button> -->
-            <li> <a href="/logout" target="_blank"> <img id="img-logout" src="./Images/logout.png"> Logout</a></li>
 
-    
-            <li> <a href="#section1">Resultado</a></li>
-            <li> <a href="#section2">Ranking</a></li>
-            <li> <a href="#section3">Gráfico</a></li>
-            <!-- </ul> -->
+                <li> <a href="/logout" target="_blank"> <img id="img-logout" src="./Images/logout.png">Logout</a>
+                </li>
+                <li> <a href="#section1">Resultado</a></li>
+                <li> <a href="#section2">Ranking</a></li>
+                <li> <a href="#section3">Gráfico</a></li>
+
+            </ul>
         </nav>
     </header>
 
     <section id="section1">
-        <div class="bgimg-1" style="background-image: url(./Images/shrek-feliz.jpg)"></div>
-        <!-- style="background-image: url(./Images/shrek-na-lama.jpg)"></div>  -->
-        <div class="caption">
-            <span class="border"> Mais feliz que o Shrek ao som de <i>All Star</i></span><br>
-        </div>
-        </div>
-        <div class="section-frase">
-            <p>A nossa primeira funcionalidade é uma análise das suas últimas 50 músicas reproduzidas.
-                Com base nela, a gente avalia a propriedade <b>valence</b>, presente em cada música existente
-                no Spotify.</p><br>
-            <p>Essa propriedade diz o quão triste ou alegre a música é. A escala vai de 0 a 1.
-                Para ter como exemplo, a música <i>Creep</i> do RadioHead tem 0.104.
-                Já a música <i>All Star</i> do Smash Mouth tem 0.776.</p>
+        <div class="container-section1">
+            <div class="bgimg-1" style="background-image: url(./Images/shrek-feliz.jpg)">
+                <!-- style="background-image: url(./Images/shrek-na-lama.jpg)"></div>  -->
+                <div class="caption">
+                    <div class="border">Mais feliz que o Shrek ao som de <i>All Star</i></div><br>
+                </div>
+            </div>
+            <div class="section1-frase">
+                <p>A nossa primeira funcionalidade é uma análise das suas últimas 50 músicas reproduzidas.
+                    Com base nela, a gente avalia a propriedade <b>valence</b>, presente em cada música existente
+                    no Spotify.</p><br>
+                <p>Essa propriedade diz o quão triste ou alegre a música é. A escala vai de 0 a 1.
+                    Para ter como exemplo, a música <i>Creep</i> do RadioHead tem 0.104.
+                    Já a música <i>All Star</i> do Smash Mouth tem 0.776.</p>
+            </div>
         </div>
     </section>
+
+
 
     <section id="section2">
         <div class="card">
@@ -85,6 +99,8 @@
             <p>No gráfico abaixo você pode ver a distribuição das músicas mais recentes.</p>
         </div>
     </section>
+
+
 
     <section id="section3">
         <canvas id="popChart" width="600" height="400"></canvas>
@@ -169,7 +185,7 @@
 
 
     <button id="back-to-top">
-        <img src="./Images/flecha-para-cima.png" alt="Flecha apontando para o topo da página">;
+        <img src="./Images/flecha-para-cima.png" alt="Flecha apontando para o topo da página">
     </button>
 
     <script>
@@ -178,6 +194,8 @@
             window.scrollTo(0, 0);
         });
     </script>
+
+    <script src="./menu.js"></script>
 
 </body>
 

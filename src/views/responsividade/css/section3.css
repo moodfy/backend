@@ -1,0 +1,108 @@
+#section3 {
+    width: 60%;
+    margin-left: 20%;
+    background-color:rgba(164, 241, 164, 0.239);
+    margin-bottom: 5%;
+}
+
+
+
+#back-to-top {
+    position:fixed;
+    bottom: 50px;
+    right: 60px;
+    width:0%;
+    height: 0%;
+    border: 0px;
+    background-color:transparent;
+}
+
+
+
+.rodape {
+    height: 80px;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    background: linear-gradient(90deg, white 0%, rgba(164, 241, 164, 0.239) 50%, rgba(0, 128, 0, 0.287) 100%);
+    line-height: 80px;
+    margin-top: 0%;
+    font-size: 20px;
+}
+
+/* ---------------------------- Responsividade ---------------------------- */
+/* @media (max-width: 1900px){
+}
+@media (max-width: 1600px){
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1200px){
+}
+@media (max-width: 1024px){
+}
+@media (max-width: 992px){
+}
+@media (max-width: 768px){
+}
+@media (max-width: 600px){
+}
+@media (max-width: 480px){
+}
+@media (max-width: 360px){
+} */
+@media (max-width: 900px) {
+    #popChart {
+        margin-left: 10%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #section3 {
+        width: 70vw !important;
+        margin-left: 15%;
+        margin-bottom: 12%;
+    }
+}
+
+
+
+@media (max-width: 600px){ 
+
+    #section3 {
+        width: 80vw !important;
+        height: 50vh;
+        margin-left: 13%;
+    }
+
+    .rodape {
+        font-size: 13px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    #back-to-top {
+        left: 5px;
+    }
+} 
+
+@media (max-width: 480px){
+    #section3 {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 360px){
+    #section3 {
+        width: 100vw !important;
+        margin-left: 0% !important;
+        margin-bottom: 20%;
+    }
+
+    #popChart {
+        width: 80% !important;
+    }
+
+}

@@ -1,0 +1,28 @@
+#btn-mobile, #btn-mobile-close {
+    display: none;
+}
+
+/* ---------------------------- Responsividade ---------------------------- */
+
+@media (max-width: 600px){
+    
+    #btn-mobile {
+        display: flex;
+        background: none;
+        border: none;
+        border-radius: 15px;
+        padding: .5rem 1rem;
+        text-decoration: none;
+        float: right;
+    }
+
+    #btn-mobile-close {
+        display: block;
+        background: none;
+        border: none;
+        border-radius: 15px;
+        padding: .5rem 1rem;
+        text-decoration: none;
+        align-self:flex-end;
+    }
+}

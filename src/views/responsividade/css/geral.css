@@ -1,0 +1,54 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+a {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+    background-color:rgba(164, 241, 164, 0.239);
+}
+
+/* ---------------------------- Responsividade ---------------------------- */
+
+@media (max-width: 1461px) {
+    html {
+        width: 100% !important; 
+        height: 100% !important;
+    }
+}
+
+
+@media (max-width: 600px){
+        	
+    html, body {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    #header { 
+        box-sizing: border-box;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 360px){
+    html, body {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+}

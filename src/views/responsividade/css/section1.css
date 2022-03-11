@@ -1,0 +1,277 @@
+#section1 {
+    width: 100%;
+    height: 70% !important;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    background: linear-gradient(90deg, white 0%, rgba(164, 241, 164, 0.239) 50%, rgba(0, 128, 0, 0.287) 100%);
+}
+
+.container-section1 {
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.bgimg-1-home {
+    background-image: url("./Images/shrek-montanha.jpg");
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+}
+
+.bgimg-1 {
+    background-image: url("./Images/shrek-triste.jpg");
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+}
+
+
+
+.caption {
+    position: relative;
+    margin-top: 55%;
+    width: 62%;
+    color: #000; 
+    margin-left: 3%; 
+    text-align: center;
+}
+
+.caption .border {
+    background-color: #111;
+    color: #fff;
+    padding-top: 2%;
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 3px green;
+    border-radius: 10px;
+    border-color: green !important;
+}
+
+
+.section1-frase {
+    width: 40%;
+    text-align: justify;
+    font-size: 25px;
+    font-family:cursive, sans-serif;
+    background-color:rgba(3, 138, 3, 0.308);
+    color: black;
+    align-self: center;
+    padding: 3%;
+    border-radius: 20%;
+    letter-spacing: 2px;
+    border-style: groove;
+    border-width: 7px;
+    border-color: black greenyellow; 
+}
+
+.section1-frase p {
+    text-indent: 3em;
+    margin-top: 0%;
+}
+
+/* ---------------------------- Responsividade ---------------------------- */
+
+/* @media (max-width: 1900px){
+}
+@media (max-width: 1600px){
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 1200px){
+}
+@media (max-width: 1024px){
+}
+@media (max-width: 992px){
+}
+@media (max-width: 768px){
+}
+@media (max-width: 600px){
+}
+@media (max-width: 480px){
+}
+@media (max-width: 360px){
+} */
+
+@media (max-width: 1900px){
+    #section1 {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+@media (max-width: 1600px){
+    .caption {
+        margin-top: 60%;
+        width: 70%;
+    }
+
+    .caption .border {
+        font-size: 18px;
+    }
+
+
+    .section1-frase {
+        font-size: 20px;
+        margin-top: 0%;
+    }
+}
+
+@media (max-width: 1440px) {
+    .caption {
+        width: 75%;
+        margin-top: 70%;
+    }
+
+    .section1-frase {
+        margin-left: 3%;
+    }
+}
+
+@media (max-width: 1366px) {
+    .caption {
+        width: 80%;
+        margin-top: 72%;
+    }
+
+    .section1-frase {
+        font-size: 18px;
+        margin-left: 4%;
+    }
+}
+
+@media (max-width: 1200px){
+
+    .caption {
+        width: 90%;
+        margin-top: 82%;
+    }
+
+    .bgimg-1 {
+        width: 50%;
+        background-position: center;
+    }
+
+    .section1-frase {
+        width: 40%;
+        height: 60%;
+        font-size: 16px;
+        margin-left: 5%;
+    }
+}
+
+@media (max-width: 1024px){
+    .caption {
+        width: 80%;
+        margin-top: 95%;
+        margin-left: 8%;
+    }
+
+    .section1-frase {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px){
+    .section1-frase {
+        font-size: 13px;
+        height: 50%;
+    }
+}
+@media (max-width: 768px){
+    .caption {
+        margin-top: 122%;
+    }
+
+    .section1-frase {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px){
+
+    #section1 {
+        width: 100vw !important;
+        height: 160vh !important;
+        margin-top: 2%;
+    }
+
+    .container-section1 {
+        height: 155vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .caption {
+        margin-left: 10% !important;
+        margin-top: 80% !important;
+    }
+
+    .caption .border {
+        font-size: 15px !important;
+    }
+
+
+    .bgimg-1 {
+        margin-top: 0%;
+        width: 100vw !important;
+        height: 130vh !important;
+    }
+
+    .section1-frase {
+        margin-top: 5%;
+        width: 80vw !important;
+        padding: 5% !important;
+        height: 30%;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px){
+    .caption {
+        margin-top: 105% !important;
+    }
+
+    .section1-frase {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px){
+    
+    #section1 {
+        height: 175vh !important;
+    }
+
+
+    .container-section1 {
+        height: 170vh;
+    }
+
+    .bgimg-1 {
+        margin-top: 0%;
+        width: 100vw !important;
+        height: 120vh !important;
+    }
+
+    .caption {
+        margin-top: 150% !important;
+    }
+
+    .caption .border {
+        font-size: 12px !important;
+    }
+
+    .section1-frase {
+        width: 80vw !important;
+        height: 55vh !important;
+        padding: 5% !important;
+    }
+
+    .section1-frase p {
+        font-size: 12px;
+        margin: 0%;
+    }
+}
