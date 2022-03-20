@@ -6,7 +6,7 @@
          "dom", 
          "esnext"
       ],
-      "target": "es5",
+      "target": "es6",
       "module": "commonjs",
       "moduleResolution": "node",
       "baseUrl": ".", /* Base directory to resolve non-absolute module names. */
@@ -16,7 +16,6 @@
          "src/types/*"
        ]
       },
-      
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
@@ -33,5 +32,4 @@
    "include": [
      "src/**/*"
    ]
-   
 }

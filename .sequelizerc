@@ -1,8 +1,11 @@
-import { resolve } from 'path'
+const path = require('path');
+const fs = require('fs');
 
-export default {
-  config: path.resolve('./../database/config', 'config.ts'),
-  'models-path': resolve('./../database/models'),
-  'seeders-path': resolve('./../database/seeders'),
-  'migrations-path': resolve('./../database/migrations'),
+const baseFolder  = fs.existsSync('src') ? 'src' : 'build'
+
+module.exports = {
+  'config': path.resolve(`./${baseFolder}/config`, 'sequelizeConfig.js'),
+  'models-path': path.resolve(baseFolder, 'models'),
+  'seeders-path': path.resolve(baseFolder, 'seeders'),
+  'migrations-path': path.resolve(baseFolder, 'migrations'),
 }
