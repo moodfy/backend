@@ -4,6 +4,8 @@ import { audioFeaturesService } from "../services/audioFeaturesService"
 import { recentlyPlayedService } from "../services/recentlyPlayedService"
 import { valenceService } from "../services/valenceService"
 import { User } from "../models/user";
+import { recommendationService } from "../services/recomendationService";
+import { playlistService } from "../services/playlistService"
 
 interface AlbumAudioAnalisys {
     y: number;
@@ -23,16 +25,22 @@ interface Dataset {
     }],
 }
 
+interface SeedCalc {
+    max: number,
+    min: number,
+    avg: number
+}
+
 export class ShreknessController {
     public async calculate(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const user = req.user as any
+            const user = req.user as SpotifyApi.UserObjectPrivate
+
             const userDb = await User.findOne({
                 where: { spotifyId: user.id }
             })
 
             if (userDb) {
-                // console.log(userDb)
                 const recentes = await recentlyPlayedService.getRecentPlayed(userDb.acessToken)
 
                 let tracks = ''
@@ -49,7 +57,6 @@ export class ShreknessController {
                 let audioAnalisys: AlbumAudioAnalisys
                 let result: AlbumAudioAnalisys[] = []
                 // let audioFeatures
-                let trackResult
                 let label = []
                 let dataset: Dataset[] = []
                 // for (const element of albuns.items) {
@@ -58,6 +65,7 @@ export class ShreknessController {
                 //         tracks += iterator.id + ','
                 //     }
 
+                await this.recomendations(audioFeatures, recentes, userDb)
                 // audioFeatures = await audioFeaturesService.getMultipleAudioFeatures(userDb.acessToken, tracks)
                 tracks = ''
                 if (typeof audioFeatures !== 'undefined') {
@@ -79,7 +87,6 @@ export class ShreknessController {
                     }
                 }
                 // }
-                // console.log(audioFeatures)
                 const resultado = await valenceService.calculaValencia(audioFeatures)
                 res.render('index.html', { resultado, user: req.user, result, label });
             }
@@ -88,4 +95,51 @@ export class ShreknessController {
         }
     }
 
+    private async recomendations(audioFeatures: SpotifyApi.MultipleAudioFeaturesResponse,
+        recentes: SpotifyApi.UsersRecentlyPlayedTracksResponse, userDb: User): Promise<void> {
+        try {
+
+            let tracksSeed = recentes.items[0].track.id
+            let artistsSeed = recentes.items[1].track.artists[0].id
+            let genresSeed = 'brazil,alternative,indie'
+
+            let valenceArr = []
+            let energyArr = []
+
+            if (typeof audioFeatures !== 'undefined') {
+                for await (const audioFeature of audioFeatures.audio_features) {
+                    valenceArr.push(audioFeature.valence)
+                    energyArr.push(audioFeature.energy)
+                }
+            }
+            let valenceSeed: SeedCalc = {
+                max: Math.max(...valenceArr),
+                min: Math.min(...valenceArr),
+                avg: Math.round(valenceArr.reduce(function (p, c, i, a) { return p + (c / a.length) }, 0) * 100) / 100
+            }
+
+            let energySeed: SeedCalc = {
+                max: Math.max(...energyArr),
+                min: Math.min(...energyArr),
+                avg: Math.round(energyArr.reduce(function (p, c, i, a) { return p + (c / a.length) }, 0) * 100) / 100
+            }
+
+            // }
+            // console.log(audioFeatures)
+            let tracksPlaylist = ''
+
+            const recomendations = await recommendationService.getRecommendations(userDb.acessToken, tracksSeed, artistsSeed, genresSeed, valenceSeed, energySeed)
+            for (const iterator of recomendations.tracks) {
+                tracksPlaylist += iterator.uri + ','
+
+            }
+            tracksPlaylist = tracksPlaylist.slice(0, -1)
+
+            await playlistService.addTracks(userDb.acessToken, '5O2cs2tK6R3ccHozTtv2uB', tracksPlaylist)
+
+
+        } catch (err) {
+
+        }
+    }
 }
