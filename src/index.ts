@@ -72,7 +72,7 @@ class App {
         this.express.get(
             '/auth/spotify',
             passport.authenticate('spotify', {
-                scope: ['user-read-email', 'user-read-private', 'user-top-read', 'user-read-recently-played'],
+                scope: ['user-read-email', 'user-read-private', 'user-top-read', 'user-read-recently-played', 'playlist-modify-private', 'playlist-modify-public'],
             })
         );
     
