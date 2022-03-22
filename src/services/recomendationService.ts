@@ -24,7 +24,7 @@ class RecommendationService {
             const returnSpotify = api.data as SpotifyApi.RecommendationsFromSeedsResponse[]
             return returnSpotify
             
-        } catch (error) {
+        } catch (error:any) {
             if (error.response!.status === 429) {
                 sleep(error.response.headers['retry-after'] as unknown as number).then(
                     await this.getRecommendations(token, tracksSeed, artistsSeed, genresSeed, valenceSeed, energySeed)

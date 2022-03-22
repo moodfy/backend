@@ -47,7 +47,7 @@ class PlaylistService {
         return returnSpotify
     }
 
-    public addTracks = async (token: string, playlistId: string, tracksPlaylist: string): Promise<SpotifyApi.PlaylistObjectSimplified> => {
+    public addTracks = async (token: string, playlistId: string, tracksPlaylist: string): Promise<SpotifyApi.PlaylistObjectSimplified | undefined> => {
         try {
 
 

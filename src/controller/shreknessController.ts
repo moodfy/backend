@@ -57,7 +57,7 @@ export class ShreknessController {
                 let audioAnalisys: AlbumAudioAnalisys
                 let result: AlbumAudioAnalisys[] = []
                 // let audioFeatures
-                let label = []
+                let label: string[] = []
                 let dataset: Dataset[] = []
                 // for (const element of albuns.items) {
                 // trackResult = await albumService.getAlbumTracks(userDb.acessToken, element.id)
@@ -103,8 +103,8 @@ export class ShreknessController {
             let artistsSeed = recentes.items[1].track.artists[0].id
             let genresSeed = 'brazil,alternative,indie'
 
-            let valenceArr = []
-            let energyArr = []
+            let valenceArr: number[] = []
+            let energyArr: number[] = []
 
             if (typeof audioFeatures !== 'undefined') {
                 for await (const audioFeature of audioFeatures.audio_features) {
