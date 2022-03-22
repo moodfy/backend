@@ -65,7 +65,7 @@ export class ShreknessController {
                 //         tracks += iterator.id + ','
                 //     }
 
-                await this.recomendations(audioFeatures, recentes, userDb)
+                // await this.recomendations(audioFeatures, recentes, userDb)
                 // audioFeatures = await audioFeaturesService.getMultipleAudioFeatures(userDb.acessToken, tracks)
                 tracks = ''
                 if (typeof audioFeatures !== 'undefined') {
