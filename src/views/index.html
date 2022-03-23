@@ -4,7 +4,7 @@
 {% if not user %}
 <!-- <h2>Welcome! Please log in.</h2>
 <p><a href="/login">login</a></p> -->
-<div class="bgimg-1">
+<div class="bgimg-1-home">
     <div class="caption">
         <span class="border">Faça login para continuar!</span><br>
         <span class="border"><a href="/login">login</a></span><br>
@@ -14,20 +14,20 @@
 {% else %}
 <header id="header">
     <nav id="nav">
-         <a href="/logout" target="_blank">Logout</a>
+         <a href="/logout">Logout</a>
     </nav>
 </header>
 <section id="section1">
     {% if resultado.type == 0 %}
     <div class="bgimg-1"
-        style="background-image: url(https://files.nsctotal.com.br/styles/paragraph_image_style/s3/imagesrc/19467670.jpg?qr1o4vY_hiIfLOo.ByZ_VlTj5YwnA.zH&itok=FAVEdsPc)">
+        style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/sad.jpg)">
         {% elif resultado.type == 1 %}
-        <div class="bgimg-1" style="background-image: url(https://i.ytimg.com/vi/pDwVHvTvZGk/maxresdefault.jpg)">
+        <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/angry.jpg)">
             {% elif resultado.type == 2 %}
-            <div class="bgimg-1" style="background-image: url(https://i.ytimg.com/vi/psFzJv8g6jc/maxresdefault.jpg)">
+            <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/chill.jpg)">
                 {% elif resultado.type == 3 %}
                 <div class="bgimg-1"
-                    style="background-image: url(https://s2.glbimg.com/4XA_kCAH1gCp60Ue60g-tBSOpuA=/607x350/smart/e.glbimg.com/og/ed/f/original/2018/05/18/shrek.jpg)">
+                    style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/happy.jpg)">
                     {% else %}
                     <div class="bgimg-1"
                         style="background-image: url(https://s.yimg.com/uu/api/res/1.2/AswZkqvI6WCQ5k03h_PnDg--~B/aD0zMDA7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/es/tomatazos_56/632614b7918d69420b6b7c14d487c320)">

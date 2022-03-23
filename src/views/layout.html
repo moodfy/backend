@@ -16,27 +16,10 @@
 
     <title>Shrekness</title>
     <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
-
-
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font: 400 15px/1.8 "Lato", sans-serif;
-            color: #777;
-        }
-
-
-
         h3 {
             letter-spacing: 2px;
             text-transform: uppercase;
-            font: 20px "Lato", sans-serif;
+            font: 40px "Lato", sans-serif;
             color: #111;
         }
 
@@ -49,13 +32,12 @@
 
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
 
-        .bgimg-1-home {
+        .bgimg-2 {
+            /* opacity: 0.85; */
+            background-position: center;
             background-repeat: no-repeat;
-            margin-left: 3%;
+            background-size: cover;
         }
 
         .bgimg-1 {
@@ -98,10 +80,17 @@
             background-color: #111;
             color: #fff;
             font-size: 20px;
-            letter-spacing: 5px;
-            border-radius: 10px;
+            letter-spacing: 5.5px;
+            border-radius: 2px;
         }
 
+        .caption-2 {
+            color: #000;
+            margin-left: 3%;
+            text-align: center;
+            letter-spacing: 2px;
+            font: 20px "Lato", sans-serif;
+        }
 
         .section1-frase {
             width: 40%;
@@ -116,42 +105,58 @@
             margin-top: 0%;
         }
 
-        #section2 {
-            height: 600px;
+        .section2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            margin: auto;
+            background-color: #9eabe4;
+            background-image: linear-gradient(315deg, #9eabe4 0%, #77eed8 74%);
+            font-family: sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            position: relative;
         }
 
         .rodape {
-    height: 80px;
-    color: rgb(44, 48, 47);
-    font-size: 14px;
-    text-align: center;
-    background: linear-gradient(90deg, white 0%, rgba(210, 224, 210, 0.239) 50%);
-    line-height: 80px;
-    margin-bottom: 0%;
-    flex-shrink: 0;
-}
-.header {
-    height: 80px;
-    color: rgb(44, 48, 47);
-    font-size: 14px;
-    text-align: center;
-    background: linear-gradient(90deg, white 0%, rgba(210, 224, 210, 0.239) 50%);
-    line-height: 80px;
-    margin-bottom: 0%;
-    flex-shrink: 0;
-}
+            height: 80px;
+            color: rgb(44, 48, 47);
+            font-size: 14px;
+            text-align: center;
+            background: linear-gradient(90deg, white 0%, rgba(210, 224, 210, 0.239) 50%);
+            line-height: 80px;
+            margin-bottom: 0%;
+            flex-shrink: 0;
+        }
+
+        .header {
+            height: 80px;
+            color: rgb(44, 48, 47);
+            font-size: 14px;
+            text-align: center;
+            background: linear-gradient(90deg, white 0%, rgba(210, 224, 210, 0.239) 50%);
+            line-height: 80px;
+            margin-bottom: 0%;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
 <body>
     {% if not user %}
-    <div class="bgimg-1-home">
-        <div class="caption">
-            <span class="border">Com base no que você tem ouvido recentemente, <br> vamos lhe dizer qual o seu nível de
-                Shrek.</span><br>
-            <p><a href="/auth/spotify">login</a></p><br>
+    <div class="container"></div>
+    <section class="section2">
+        <div class="caption-2">
+            <h3>Moodfy</h3>
+            <span>Com base no que você tem ouvido recentemente no Spotify, <br> vamos lhe dizer qual sua escala de
+                Shrekness.</span><br>
+            <span><a href="/auth/spotify">Faça login para continuar</a></span><br>
         </div>
-    </div>
+    </section>
     {% else %}
     <!-- <p> -->
     <!-- <a href="/">Home</a> | -->
