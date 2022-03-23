@@ -20,17 +20,17 @@
 <section id="section1">
     {% if resultado.type == 0 %}
     <div class="bgimg-1"
-        style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/sad.jpg)">
+        style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
         {% elif resultado.type == 1 %}
-        <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/angry.jpg)">
+        <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/sad.jpg)">
             {% elif resultado.type == 2 %}
-            <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/chill.jpg)">
+            <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/angry.jpg)">
                 {% elif resultado.type == 3 %}
                 <div class="bgimg-1"
-                    style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/happy.jpg)">
+                    style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/chill.jpg)">
                     {% else %}
                     <div class="bgimg-1"
-                        style="background-image: url(https://s.yimg.com/uu/api/res/1.2/AswZkqvI6WCQ5k03h_PnDg--~B/aD0zMDA7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/es/tomatazos_56/632614b7918d69420b6b7c14d487c320)">
+                        style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/happy.jpg)">
                         {% endif %}
                         <div class="caption">
                             <span class="border"> {{resultado.frase }}</span><br>
