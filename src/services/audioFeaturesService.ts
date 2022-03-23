@@ -19,7 +19,7 @@ class AudioFeaturesService {
             const returnSpotify = api.data as SpotifyApi.MultipleAudioFeaturesResponse[]
             return returnSpotify
             
-        } catch (error) {
+        } catch (error: any) {
             if (error.response!.status === 429) {
                 sleep(error.response.headers['retry-after'] as unknown as number).then(
                     await this.getMultipleAudioFeatures(token, tracks)
