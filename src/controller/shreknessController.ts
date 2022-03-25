@@ -88,7 +88,16 @@ export class ShreknessController {
                 }
                 // }
                 const resultado = await valenceService.calculaValencia(audioFeatures)
-                res.render('index.html', { resultado, user: req.user, result, label });
+                const retorno = {
+                    resultado: resultado,
+                    user: user,
+                    result: result,
+                    label: label
+                }
+                console.log(retorno)
+
+                res.send(retorno)
+                // res.render('index.html', { resultado, user: req.user, result, label });
             }
         } catch (err) {
             next(err)
