@@ -12,19 +12,56 @@
     </div>
 </div>
 {% else %}
-<header id="header">
+<!-- <header id="header">
     <nav id="nav">
          <a href="/logout">Logout</a>
-    </nav>
-</header>
+        </nav>
+    </header> -->
 <section id="section1">
-    {% if resultado.type == 0 %}
+    <div class="new-header">
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="new-body">
+        <div class="new-img">
+            <div    class="" />
+
+            <!-- {% if resultado.type == 0 %}
+            <div class="bgimg-1"
+                style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
+                {% elif resultado.type == 1 %}
+                <div class="bgimg-1"
+                    style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/sad.jpg)">
+                    {% elif resultado.type == 2 %}
+                    <div class="bgimg-1"
+                        style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
+                        {% elif resultado.type == 3 %}
+                        <div class="bgimg-1"
+                            style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
+                            {% else %}
+                            <div class="bgimg-1"
+                                style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/happy.jpg)">
+                                {% endif %}
+                                <div class="caption">
+                                    <span class="border"> {{resultado.frase }}</span><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="new-graf"><canvas id="popChart" width="600" height="400" /></div>
+    </div>
+    <div class="new-footer">&copy; 2022 Copyright - Moodfy</div>
+
+
+    <!-- {% if resultado.type == 0 %}
     <div class="bgimg-1"
         style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
         {% elif resultado.type == 1 %}
         <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/sad.jpg)">
             {% elif resultado.type == 2 %}
-            <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/angry.jpg)">
+            <div class="bgimg-1" style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/relax.jpg)">
                 {% elif resultado.type == 3 %}
                 <div class="bgimg-1"
                     style="background-image: url(https://raw.githubusercontent.com/moodfy/backend/dev/src/views/img/chill.jpg)">
@@ -42,11 +79,12 @@
     </div>
     <div class="section1-frase">
         <canvas id="popChart" width="600" height="400"></canvas>
-    </div>
+    </div> -->
 </section>
-<footer class="rodape">
-    <p class="rodape">&copy; 2022 Copyright - <i></i> Moodfy</p>
-</footer>
+
+<!-- <footer class="rodape">
+    <p class="copyright">&copy; 2022 Copyright - Moodfy</p>
+</footer> -->
 
 <script type="text/javascript">
     var popCanvas = document.getElementById("popChart");
